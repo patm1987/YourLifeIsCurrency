@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "569225385492",
+    "firebase_url": "https://yourlifeiscurrency.firebaseio.com",
+    "project_id": "yourlifeiscurrency",
+    "storage_bucket": "yourlifeiscurrency.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569225385492:android:fdb26a434c6ceb8a",
+        "android_client_info": {
+          "package_name": "com.pux0r3.yourlifeiscurrency"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569225385492-qrabpt0r35ffc86cuuvdt4h3gm8idqog.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1OgDS5DDuMcu8Wcjr3zfSFawsM4oKHR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569225385492-qrabpt0r35ffc86cuuvdt4h3gm8idqog.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
