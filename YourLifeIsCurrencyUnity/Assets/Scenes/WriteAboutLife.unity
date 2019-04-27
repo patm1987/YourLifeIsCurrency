@@ -810,6 +810,7 @@ GameObject:
   - component: {fileID: 801605504}
   - component: {fileID: 801605503}
   - component: {fileID: 801605502}
+  - component: {fileID: 801605505}
   m_Layer: 5
   m_Name: SubmitButton
   m_TagString: Untagged
@@ -919,6 +920,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801605500}
   m_CullTransparentMesh: 0
+--- !u!114 &801605505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801605500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6976accc22b2d6146954cc7006c618a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 801605502}
+  _guessInput: {fileID: 2040313385}
+  _writer: {fileID: 1906622682}
 --- !u!1 &839862130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,6 +1351,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1906622681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1906622683}
+  - component: {fileID: 1906622682}
+  m_Layer: 0
+  m_Name: Writer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1906622682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906622681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35126a8eef41ea744a9d53bb99468b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guessType: 0
+  _guess: 
+  OnGuessSubmitted:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GuessWriter.Writer+GuessSubmittedEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!4 &1906622683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906622681}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2040313380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,8 +1413,9 @@ GameObject:
   - component: {fileID: 2040313384}
   - component: {fileID: 2040313383}
   - component: {fileID: 2040313382}
+  - component: {fileID: 2040313385}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: GuessInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1523,3 +1590,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040313380}
   m_CullTransparentMesh: 0
+--- !u!114 &2040313385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040313380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b574d1505d883d4d8fce0e3531ddaac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _input: {fileID: 2040313382}
+  _writer: {fileID: 1906622682}
