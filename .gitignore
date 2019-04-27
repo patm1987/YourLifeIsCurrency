@@ -1,3 +1,7 @@
 /YourLifeIsCurrencyUnity/Library
 /YourLifeIsCurrencyUnity/Logs
 /YourLifeIsCurrencyUnity/Temp
+/YourLifeIsCurrencyUnity/*.sln
+/YourLifeIsCurrencyUnity/*.csproj
+/YourLifeIsCurrencyUnity/.idea/
+/YourLifeIsCurrencyUnity/obj/
