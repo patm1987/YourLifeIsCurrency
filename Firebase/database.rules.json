@@ -2,8 +2,14 @@
   "rules": {
     ".read": false,
     ".write": false,
-    "lobbies": {
-      ".read": "auth != null"
+    "games": {
+      "{gameId}": {
+        ".read": "data.child('open').val() == true || data.child('members').child(auth.uid).val() == true",
+        "open": {
+          ".read": true,
+          ".write": "data.parent().child('owner').val() == auth.uid"
+        }
+      }
     }
   }
 }

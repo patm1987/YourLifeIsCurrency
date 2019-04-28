@@ -16,6 +16,15 @@ namespace Firebase
             });
         }
 
+        public CallFunction(FirebaseFunctions functions, string functionName, object data)
+        {
+            functions.GetHttpsCallable(functionName).CallAsync(data).ContinueWith(task =>
+            {
+                Result = task.Result;
+                _finished = true;
+            });
+        }
+
         public override bool keepWaiting => !_finished;
         public HttpsCallableResult Result { get; private set; }
     }
