@@ -2,18 +2,14 @@
 using Firebase.Auth;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace Firebase
 {
     public class LoadSceneWhenLoggedIn : MonoBehaviour
     {
         [SerializeField] private string _scene;
-        private FirebaseAuth _auth;
-
-        private void Awake()
-        {
-            _auth = FirebaseAuth.DefaultInstance;
-        }
+        [Inject] private FirebaseAuth _auth;
 
         private void Start()
         {

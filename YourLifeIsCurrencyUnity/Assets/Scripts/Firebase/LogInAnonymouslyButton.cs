@@ -1,11 +1,14 @@
 ﻿using System.Collections;
+using Firebase.Auth;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Firebase
 {
     public class LogInAnonymouslyButton : MonoBehaviour
     {
+        [Inject] private FirebaseAuth _auth;
         [SerializeField] private Button _button;
 
         private void Reset()
@@ -26,7 +29,7 @@ namespace Firebase
         private IEnumerator LogInAnonymouslyButtonClicked()
         {
             _button.interactable = false;
-            var loginAnonymously = new LogInAnonymously();
+            var loginAnonymously = new LogInAnonymously(_auth);
             yield return loginAnonymously;
             _button.interactable = true;
         }

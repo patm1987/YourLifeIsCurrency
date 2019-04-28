@@ -9,9 +9,8 @@ namespace Firebase
 
         public FirebaseUser Result { get; private set; }
         
-        public LogInAnonymously()
+        public LogInAnonymously(FirebaseAuth auth)
         {
-            var auth = FirebaseAuth.DefaultInstance;
             auth.SignInAnonymouslyAsync().ContinueWith(task =>
             {
                 if (task.IsCanceled)

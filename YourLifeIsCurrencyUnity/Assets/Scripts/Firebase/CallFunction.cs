@@ -7,9 +7,8 @@ namespace Firebase
     {
         private bool _finished;
 
-        public CallFunction(string functionName)
+        public CallFunction(FirebaseFunctions functions, string functionName)
         {
-            var functions = FirebaseFunctions.DefaultInstance;
             functions.GetHttpsCallable(functionName).CallAsync().ContinueWith(task =>
             {
                 Result = task.Result;

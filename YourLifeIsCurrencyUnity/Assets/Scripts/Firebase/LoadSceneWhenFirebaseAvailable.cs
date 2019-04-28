@@ -1,12 +1,14 @@
 ﻿using System.Collections;
+using Firebase.Auth;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace Firebase
 {
     public class LoadSceneWhenFirebaseAvailable : MonoBehaviour
     {
-        [SerializeField] private FirebaseHelper _firebaseHelper;
+        [Inject] private FirebaseApp _firebase;
         [SerializeField] private string _scene;
 
         private void Start()
@@ -16,9 +18,9 @@ namespace Firebase
 
         private IEnumerator WaitForFirebaseAndLoadScene()
         {
-            var awaitFirebase = _firebaseHelper.Firebase;
-            yield return awaitFirebase;
-            if (awaitFirebase.Result != null)
+            var awaitFirebaseDependencies = new CheckAndFixDependencies();
+            yield return awaitFirebaseDependencies;
+            if (awaitFirebaseDependencies.CurrentState == CheckAndFixDependencies.State.Success)
             {
                 SceneManager.LoadScene(_scene);
             }

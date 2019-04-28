@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using Firebase;
+using Firebase.Functions;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 
 public class CreateGameButton : MonoBehaviour, IPointerClickHandler
 {
+    [Inject] private FirebaseFunctions _functions;
     private Coroutine _createGameCoroutine;
     
     public void OnPointerClick(PointerEventData eventData)
@@ -19,7 +22,7 @@ public class CreateGameButton : MonoBehaviour, IPointerClickHandler
 
     private IEnumerator CreateGameCoroutine()
     {
-        var createGame = new CallFunction("createGame");
+        var createGame = new CallFunction(_functions, "createGame");
         yield return createGame;
         var sb = new StringBuilder();
         var resultDictionary = (Dictionary<object, object>) createGame.Result.Data;
