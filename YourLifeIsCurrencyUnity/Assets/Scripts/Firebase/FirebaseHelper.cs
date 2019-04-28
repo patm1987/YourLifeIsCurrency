@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Firebase
 {
@@ -6,8 +7,31 @@ namespace Firebase
     public class FirebaseHelper : ScriptableObject
     {
         private WaitForFirebase _waitForFirebase;
+        private FirebaseHelperProxy _proxy;
 
-        public WaitForFirebase Firebase => _waitForFirebase ?? (_waitForFirebase = new WaitForFirebase());
+        public WaitForFirebase Firebase => GetProxy().Firebase;
+
+        private FirebaseHelperProxy GetProxy()
+        {
+            if (_proxy == null)
+            {
+                var proxyGo = new GameObject("FirebaseHelperProxy");
+                _proxy = proxyGo.AddComponent<FirebaseHelperProxy>();
+            }
+            return _proxy;
+        }
+    }
+
+    public class FirebaseHelperProxy : MonoBehaviour
+    {
+        private void Awake()
+        {
+            DontDestroyOnLoad(gameObject);
+            gameObject.hideFlags = HideFlags.HideAndDontSave;
+            Firebase = new WaitForFirebase();
+        }
+        
+        public WaitForFirebase Firebase { get; private set; }
     }
 
     public class WaitForFirebase : CustomYieldInstruction

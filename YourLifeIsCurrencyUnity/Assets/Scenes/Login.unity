@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7926744a183df6d4db888af4732fdc49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scene: Lobby
+  _scene: CreateOrJoinGame
 --- !u!4 &1902442838
 Transform:
   m_ObjectHideFlags: 0
