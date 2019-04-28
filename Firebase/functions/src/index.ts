@@ -69,7 +69,7 @@ export const joinGame = functions.https.onCall((data, context) => {
     if (context.auth) {
         const gameId: string = data.text;
         const db = admin.database();
-        const path = "games/ " + gameId;
+        const path = "games/" + gameId;
         const gameRef = db.ref(path);
         const auth = context.auth;
         return gameRef.once("value").then((dataSnapshot)=>{

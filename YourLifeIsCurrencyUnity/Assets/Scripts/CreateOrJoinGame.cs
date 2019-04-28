@@ -34,7 +34,8 @@ public class CreateOrJoinGame : MonoBehaviour
 
     private IEnumerator JoinGame(string gameId)
     {
-        var joinGame = new CallFunction(_functions, "joinGame", gameId);
+        var gameDictionary = new Dictionary<string, string> {["text"] = gameId};
+        var joinGame = new CallFunction(_functions, "joinGame", gameDictionary);
         yield return joinGame;
         var sb = new StringBuilder();
         var resultDictionary = (Dictionary<object, object>) joinGame.Result.Data;
